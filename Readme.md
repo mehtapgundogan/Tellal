@@ -1,1 +1,1 @@
-Haber Bülteni Uygulamasi
+Haber Bulteni Uygulamasi
