@@ -1,3 +1,23 @@
-HELLO WORLD!
+{% include "/base/base.html" %}
 
-This project is tellal :)
+
+  <h2>Bulletin</h2>
+  <form action="/hello" method=post>
+ 
+    {{ form.startDate.label }}
+    {{ form.startDate }}
+ 
+    {{ form.endDate.label }}
+    {{ form.endDate }}
+ 
+    {{ form.affectedProjects.label }}
+    {{ form.affectedProjects }}
+ 
+    {{ form.affectedGroups.label }}
+    {{ form.affectedGroups }}
+ 
+    {{ form.description.label }}
+    {{ form.description }}
+ 
+    {{ form.submit }}
+  </form>
