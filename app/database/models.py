@@ -26,4 +26,5 @@ class Issue(db.Model):
     issueID = db.Column(db.Integer, primary_key=True)
     mailID = db.Column(db.Integer, db.ForeignKey('issue.mailID'))
     issueStatus = db.Column(db.Boolean)
-    issueTime = db.Column(db.DateTime)
+    startTime = db.Column(db.DateTime)
+    endTime = db.Column(db.DateTime)
