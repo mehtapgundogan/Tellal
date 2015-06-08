@@ -2,23 +2,26 @@
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask import Flask
+import os, sys
 
+# Define the WSGI application object
+app = Flask(__name__)
+# Configurations
+app.config.from_object('config')
+db = SQLAlchemy(app)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(BASE_DIR, "app"))
+
+	
+def init_app():
+	return app
 
 def create_app():
-	# Define the WSGI application object
-	app = Flask(__name__)
-	# Configurations
-	app.config.from_object('config')
-	
+	# Import a module / component using its blueprint handler variable (mod_auth)	
 	#db object
-	db = SQLAlchemy(app)
+	from app.account import models
+	from app.tellal import models
 	db.init_app(app)
-
-	# Import a module / component using its blueprint handler variable (mod_auth)
-	from app.hello.controllers import mod_hello
+	db.create_all()
 	
-	# Register blueprint(s)
-	app.register_blueprint(mod_hello)
-	# app.register_blueprint(xyz_module)
-	# ..
 	return app
