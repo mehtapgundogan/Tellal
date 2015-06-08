@@ -4,10 +4,11 @@ from flask import Flask, render_template
 
 # Define the WSGI application object
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://dbtestuser2:dbtestpassword@localhost:3306/dbtest"
-db = SQLAlchemy(app)
 # Configurations
 app.config.from_object('config')
+
+#db object
+db = SQLAlchemy(app)
 
 # Sample HTTP error handling
 @app.errorhandler(404)
